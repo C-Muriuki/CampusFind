@@ -131,10 +131,10 @@ No build step, no Node, no Composer — just PHP and a database.
 
 ```bash
 # 1. Create the database
-mysql -u root -p -e "CREATE DATABASE campusfind CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+mysql -u <db_user> -p -e "CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 
 # 2. Import the schema (tables only)
-mysql -u root -p campusfind < database/schema.sql
+mysql -u <db_user> -p <db_name> < database/schema.sql
 
 # 3. Configure the database connection
 cp config/database.example.php config/database.local.php
@@ -157,12 +157,14 @@ Open <http://localhost:8000>.
 
 ### Demo accounts
 
-| Role    | Email                     | Password      |
-|---------|---------------------------|---------------|
-| Admin   | `admin@zetech.ac.ke`      | `Admin@12345` |
-| Student | `amina.wanjiru@zetech.ac.ke` | `DemoPass123!` |
+The demo accounts are seeded by `database/seed_demo.php`. Their credentials are
+intentionally **not** listed here; check that file for the exact admin and student
+logins used by the demo data.
 
-(Other demo students use the same `DemoPass123!` password.)
+| Role    | Email                     | Password          |
+|---------|---------------------------|-------------------|
+| Admin   | `admin@<your-domain>`     | `<admin-password>` |
+| Student | `<student>@<your-domain>` | `<demo-password>`  |
 
 ---
 
@@ -191,8 +193,8 @@ domain. Two environment variables control production behaviour:
    credentials (keep this file off the repo and readable only by the web user).
 5. **Create the DB and tables** on the server:
    ```bash
-   mysql -u root -p -e "CREATE DATABASE campusfind CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-   mysql -u root -p campusfind < database/schema.sql
+   mysql -u <db_user> -p -e "CREATE DATABASE <db_name> CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+   mysql -u <db_user> -p <db_name> < database/schema.sql
    ```
    Optionally load demo data with `php database/seed_demo.php`, or create your own
    admin account. **Remove demo accounts before real use.**
