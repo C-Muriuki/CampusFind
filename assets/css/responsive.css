@@ -1,0 +1,349 @@
+/* ============================= LAPTOP / TABLET ============================= */
+
+@media (max-width: 1100px) {
+    .container {
+        width: min(calc(100% - 44px), var(--container));
+    }
+
+    .header-inner {
+        gap: 18px;
+    }
+
+    .brand-name {
+        font-size: 22px;
+    }
+
+    .brand-artwork {
+        width: 39px;
+        height: 43px;
+    }
+
+    .primary-navigation {
+        gap: 16px;
+    }
+
+    .primary-navigation > a {
+        font-size: 12px;
+    }
+
+    .header-actions .button {
+        padding-inline: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(36px, 5vw, 50px);
+    }
+
+    .stat-num {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 820px) {
+    .container {
+        width: min(calc(100% - 36px), var(--container));
+    }
+
+    .site-header,
+    .header-inner {
+        min-height: 70px;
+    }
+
+    .header-inner {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .brand-name {
+        font-size: 21px;
+    }
+
+    .brand-artwork {
+        width: 37px;
+        height: 41px;
+    }
+
+    .primary-navigation {
+        gap: 11px;
+    }
+
+    .primary-navigation > a {
+        font-size: 11px;
+    }
+
+    .header-actions .button {
+        min-height: 39px;
+        padding-inline: 12px;
+        font-size: 11px;
+    }
+
+    .hero-description {
+        font-size: 16px;
+    }
+
+    .cta-inner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .cta-inner .button-white {
+        width: 100%;
+    }
+}
+
+/* ============================= MOBILE ============================= */
+
+@media (max-width: 680px) {
+    .container {
+        width: min(calc(100% - 32px), var(--container));
+    }
+
+    .site-header,
+    .header-inner {
+        min-height: 66px;
+    }
+
+    .header-inner {
+        position: relative;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .brand-artwork {
+        width: 35px;
+        height: 39px;
+    }
+
+    .brand-name {
+        font-size: 20px;
+    }
+
+    .brand-caption {
+        font-size: 8px;
+    }
+
+    /* Hamburger */
+    .menu-toggle {
+        width: 42px;
+        height: 42px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        padding: 8px;
+        background: transparent;
+        border: 1px solid var(--border);
+        border-radius: 9px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 19px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 3px;
+        transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:first-child {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle[aria-expanded="true"] span:last-child {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .primary-navigation {
+        position: absolute;
+        top: calc(100% + 1px);
+        left: -16px;
+        right: -16px;
+        height: auto;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        gap: 0;
+        padding: 10px 16px 16px;
+        background: var(--white);
+        border-bottom: 1px solid var(--border);
+        box-shadow: var(--shadow);
+    }
+
+    .primary-navigation.is-open {
+        display: flex;
+    }
+
+    .primary-navigation > a {
+        min-height: 46px;
+        height: auto;
+        padding: 12px 4px;
+        font-size: 14px;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .primary-navigation > a.active::after {
+        display: none;
+    }
+
+    .mobile-auth-actions {
+        display: flex;
+        gap: 10px;
+        padding-top: 14px;
+    }
+
+    .mobile-auth-actions .button {
+        flex: 1;
+    }
+
+    .header-actions {
+        display: none;
+    }
+
+    /* Hero */
+    .hero {
+        border-radius: 0 0 32px 32px;
+    }
+
+    .hero-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+        padding-top: 40px;
+        padding-bottom: 64px;
+    }
+
+    .hero-visual {
+        order: -1;
+    }
+
+    .hero-image {
+        width: min(100%, 340px);
+        margin-inline: auto;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(33px, 9.5vw, 42px);
+        letter-spacing: -1.8px;
+        line-height: 1.08;
+    }
+
+    .hero .eyebrow {
+        font-size: 9px;
+        letter-spacing: 1px;
+    }
+
+    .hero-description {
+        margin: 15px 0 22px;
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .hero-actions {
+        gap: 10px;
+    }
+
+    .button-large {
+        flex: 1 1 100%;
+        min-width: 0;
+        min-height: 48px;
+        font-size: 13px;
+    }
+
+    .hero-points {
+        gap: 9px 18px;
+        margin-top: 24px;
+    }
+
+    .hero-points li {
+        font-size: 12px;
+    }
+
+    /* Stats */
+    .stats-section {
+        margin-top: -60px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .stat-card {
+        flex-direction: row;
+        align-items: baseline;
+        gap: 10px;
+        padding: 18px 20px;
+    }
+
+    .stat-num {
+        font-size: 30px;
+    }
+
+    /* How / cards */
+    .how-section {
+        padding-top: 42px;
+    }
+
+    .section-heading {
+        text-align: left;
+    }
+
+    .info-card {
+        padding: 24px 22px;
+    }
+
+    /* CTA */
+    .cta-section {
+        padding-bottom: 46px;
+    }
+
+    .cta-inner {
+        padding: 28px 24px;
+    }
+
+    /* Footer */
+    .footer-inner {
+        min-height: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 28px;
+        padding-bottom: 20px;
+        gap: 14px;
+    }
+
+    .footer-bottom {
+        min-height: 52px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .footer-bottom p {
+        font-size: 10px;
+    }
+}
+
+/* ============================= SMALL PHONES ============================= */
+
+@media (max-width: 380px) {
+    .container {
+        width: calc(100% - 26px);
+    }
+
+    .hero-content h1 {
+        font-size: 31px;
+    }
+
+    .brand-name {
+        font-size: 18px;
+    }
+}
