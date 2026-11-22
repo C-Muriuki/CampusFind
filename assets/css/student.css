@@ -400,8 +400,8 @@ h3 {
 
 @media (hover: hover) and (pointer: fine) {
     .stat-card:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--shadow-lg, 0 18px 50px rgba(8, 15, 43, .14));
+        transform: translateY(-3px);
+        box-shadow: var(--shadow, 0 4px 18px rgba(8, 15, 43, .07));
         border-color: var(--pink-soft, #FCE4EC);
     }
 

@@ -8,5 +8,7 @@ TODO - CampusFind nav + dark-mode hardening
 [x] CSS: dark-mode text legibility pass (size/weight/brightness) across admin.css, student.css, style.css, stage8-polish.css
 [x] CSS: shared mobile polish block (overflow-wrap, bottom space for palette, overflow-x, no overlap)
 [x] Lint: node --check JS, php -l PHP, CSS brace balance
-[~] Deploy changed files via Git push -> GitHub Actions -> InfinityFree, verify live HTTP 200 + nav + dark text
-[ ] Commit & push to origin/main; confirm GitHub Actions deploy green
+[x] Deploy changed files via Git push -> GitHub Actions -> InfinityFree (verified live: theme.js 79 lines, admin.css + student.css + stage8-polish.css dark overrides deployed), verify live HTTP 200 + nav + dark text
+[x] Committed c09070d + pushed to origin/main; deploy verified live
+
+[~] Card containment fix: reduced hover lift, added overflow containment to page sections, mobile guard — ready to commit & push

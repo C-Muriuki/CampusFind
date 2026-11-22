@@ -335,3 +335,30 @@ html {
         padding-bottom: 72px;
     }
 }
+
+/* ============================= CARD CONTAINMENT SAFETY =============================
+   Prevent floating/lifted cards from spilling out of sections on any screen size.
+   Cards keep their hover lift but stay clipped inside their section boundaries. */
+
+.page-section,
+.admin-content,
+.student-main {
+    overflow: hidden;
+}
+
+/* Keep lifted card visuals inside their grid cell on small screens */
+@media (max-width: 640px) {
+    .items-grid,
+    .stats-grid,
+    .chart-grid {
+        overflow: hidden;
+    }
+    .item-card,
+    .stat-card {
+        transform: none !important;
+    }
+    .item-card:hover,
+    .stat-card:hover {
+        transform: translateY(-2px) !important;
+    }
+}
