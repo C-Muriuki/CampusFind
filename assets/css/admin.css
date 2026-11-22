@@ -38,7 +38,7 @@
     --success: #4ADE80;
     --danger: #F4F6FA;
     --warning: #AAB3C5;
-    --sidebar-bg: #040517;
+    --sidebar-bg: #080F2B;
     --sidebar-fg: #F4F6FA;
     --sidebar-muted: #8A93A8;
     --sidebar-heading: #7C86A0;
@@ -683,6 +683,11 @@ textarea {
     text-transform: uppercase;
 }
 
+[data-theme="dark"] .admin-table th {
+    background: var(--panel);
+    color: var(--text);
+}
+
 .admin-table td {
     padding: 14px 11px;
     border-bottom: 1px solid var(--border);
@@ -695,6 +700,10 @@ textarea {
 
 .admin-table tbody tr:hover {
     background: #FAFBFC;
+}
+
+[data-theme="dark"] .admin-table tbody tr:hover {
+    background: rgba(255, 255, 255, .05);
 }
 
 .admin-table td strong,
@@ -733,6 +742,12 @@ textarea {
 .status-rejected {
     background: var(--navy);
     color: var(--white);
+}
+
+[data-theme="dark"] .status-rejected,
+[data-theme="dark"] .badge-suspended {
+    background: #080F2B;
+    color: #FFFFFF;
 }
 
 .status-resolved {
@@ -774,6 +789,12 @@ textarea {
 .activity-item small {
     color: #858D9A;
     font-size: 10px;
+}
+
+[data-theme="dark"] .activity-item small {
+    color: #C9D0E0;
+    font-size: 11px;
+    font-weight: 600;
 }
 
 .page-intro {
@@ -1182,6 +1203,10 @@ textarea {
 .btn-danger {
     background: var(--danger);
     color: var(--white);
+}
+
+[data-theme="dark"] .btn-danger {
+    color: #FFFFFF;
 }
 
 .btn-danger:hover {

@@ -30,6 +30,7 @@ $currentFile = basename($_SERVER['PHP_SELF'] ?? '');
     <link rel="stylesheet" href="<?= e(BASE_URL) ?>/assets/css/palette.css">
 
     <script src="<?= e(BASE_URL) ?>/assets/js/theme.js" defer></script>
+    <script src="<?= e(BASE_URL) ?>/assets/js/nav.js" defer></script>
     <script src="<?= e(BASE_URL) ?>/assets/js/auth.js" defer></script>
     <script src="<?= e(BASE_URL) ?>/assets/js/palette.js" defer></script>
 </head>
@@ -88,7 +89,7 @@ $currentFile = basename($_SERVER['PHP_SELF'] ?? '');
 
             <button class="menu-toggle student-menu-toggle" type="button"
                     aria-label="Open navigation" aria-expanded="false"
-                    aria-controls="studentNav">
+                    data-breakpoint="900" aria-controls="studentNav">
                 <span></span><span></span><span></span>
             </button>
         </div>

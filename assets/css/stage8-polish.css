@@ -257,3 +257,81 @@ body {
         padding-bottom: 72px;
     }
 }
+
+/* ============================= DARK MODE TEXT LEGIBILITY =============================
+   Small / muted text stays clearly readable in dark mode (brighter, bolder). */
+
+[data-theme="dark"] .muted,
+[data-theme="dark"] small,
+[data-theme="dark"] .caption {
+    color: #C9D0E0;
+    font-weight: 600;
+}
+
+/* ============================= UI STATE LOADERS =============================
+   Reusable CSS-only loading states (spinner + skeleton pulse) for pending UI. */
+
+.loader {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: 2.5px solid rgba(233, 30, 99, .25);
+    border-top-color: var(--magenta);
+    border-radius: 50%;
+    animation: cf-spin .7s linear infinite;
+    vertical-align: middle;
+}
+
+.loader.small {
+    width: 14px;
+    height: 14px;
+    border-width: 2px;
+}
+
+.skeleton {
+    position: relative;
+    overflow: hidden;
+    background: var(--panel);
+    border-radius: var(--radius-sm, 10px);
+}
+
+.skeleton::after {
+    content: "";
+    position: absolute;
+    left: -120%;
+    top: 0;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .10), transparent);
+    animation: cf-shimmer 1.4s ease infinite;
+}
+
+@keyframes cf-spin {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes cf-shimmer {
+    100% { left: 140%; }
+}
+
+/* ============================= EXTRA MOBILE POLISH =============================
+   No horizontal scroll, fluid media, safe bottom clearance so floating
+   quick-nav / palette triggers never cover content. */
+
+html {
+    overflow-x: hidden;
+}
+
+@media (max-width: 640px) {
+    .menu-toggle {
+        touch-action: manipulation;
+    }
+    .site-footer,
+    .auth-footer-bar,
+    .admin-content,
+    .student-main {
+        padding-bottom: 72px;
+    }
+}

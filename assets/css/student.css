@@ -288,6 +288,12 @@ h3 {
     letter-spacing: -0.2px;
 }
 
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3 {
+    color: #FFFFFF;
+}
+
 .muted,
 .stat-description {
     color: var(--muted);
@@ -526,6 +532,10 @@ h3 {
     color: var(--navy);
 }
 
+[data-theme="dark"] .student-table td strong {
+    color: #EAF0FB;
+}
+
 .student-table td small {
     display: block;
     margin-top: 3px;
@@ -723,6 +733,12 @@ h3 {
     font-weight: 700;
 }
 
+[data-theme="dark"] .form-group label {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 800;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {
@@ -822,6 +838,10 @@ h3 {
 .btn-danger {
     background: var(--danger);
     color: var(--white);
+}
+
+[data-theme="dark"] .btn-danger {
+    color: #FFFFFF;
 }
 
 .btn-danger:hover {
@@ -1311,6 +1331,12 @@ h3 {
     margin: 4px 0 12px;
     color: var(--muted);
     font-size: 11px;
+}
+
+[data-theme="dark"] .message-meta {
+    color: #C9D0E0;
+    font-size: 12px;
+    font-weight: 600;
 }
 
 .message-block {

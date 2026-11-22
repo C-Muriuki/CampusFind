@@ -64,7 +64,7 @@ $navItems = [
     <link rel="stylesheet" href="<?= e($base) ?>/assets/css/palette.css">
 
     <script src="<?= e($base) ?>/assets/js/theme.js" defer></script>
-    <script src="<?= e($base) ?>/assets/js/app.js" defer></script>
+    <script src="<?= e($base) ?>/assets/js/nav.js" defer></script>
     <script src="<?= e($base) ?>/assets/js/toast.js" defer></script>
     <script src="<?= e($base) ?>/assets/js/palette.js" defer></script>
 </head>
@@ -86,7 +86,7 @@ $navItems = [
 
         <button class="menu-toggle" type="button"
                 aria-label="Open navigation" aria-expanded="false"
-                aria-controls="primary-navigation">
+                data-breakpoint="680" aria-controls="primary-navigation">
             <span></span><span></span><span></span>
         </button>
 

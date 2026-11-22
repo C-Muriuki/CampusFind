@@ -33,6 +33,7 @@ if (!function_exists('adminStatusClass')) {
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/stage8-polish.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/palette.css">
     <script src="<?= BASE_URL ?>/assets/js/theme.js" defer></script>
+    <script src="<?= BASE_URL ?>/assets/js/nav.js" defer></script>
     <script src="<?= BASE_URL ?>/assets/js/palette.js" defer></script>
 </head>
 <body class="admin-body">
@@ -111,7 +112,7 @@ if (!function_exists('adminStatusClass')) {
             <div class="admin-topbar-head">
                 <button class="menu-toggle admin-menu-toggle" type="button"
                         aria-label="Open navigation" aria-expanded="false"
-                        aria-controls="adminSidebar">
+                        data-breakpoint="800" aria-controls="adminSidebar">
                     <span></span><span></span><span></span>
                 </button>
                 <div>
