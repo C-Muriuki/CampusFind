@@ -21,7 +21,8 @@ if (!function_exists('adminStatusClass')) {
 }
 ?>
 <!DOCTYPE html>
-<html lang="en" data-theme="<?= e(CURRENT_THEME) ?>">
+<html lang="en" data-theme="<?= e(CURRENT_THEME) ?>"
+      data-base-url="<?= e(BASE_URL) ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,7 +31,9 @@ if (!function_exists('adminStatusClass')) {
     <title><?= e($pageTitle) ?> | CampusFind Admin</title>
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/admin.css">
     <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/stage8-polish.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/palette.css">
     <script src="<?= BASE_URL ?>/assets/js/theme.js" defer></script>
+    <script src="<?= BASE_URL ?>/assets/js/palette.js" defer></script>
 </head>
 <body class="admin-body">
 
