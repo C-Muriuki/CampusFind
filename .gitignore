@@ -1,0 +1,108 @@
+# =============================================================================
+# CampusFind — .gitignore (WHITELIST)
+# Only real application files are tracked. Everything else is ignored by
+# default, then specific file types are re-included. Kilo/agent tooling, local
+# docs, secrets, user uploads and dev scripts are explicitly re-excluded.
+# =============================================================================
+
+# Ignore everything by default
+*
+
+# Allow descending into directories (so git can recurse)
+!*/
+
+# ---- Git metadata ----
+!.gitignore
+
+# ---- Application source code ----
+!*.php
+!*.html
+!*.css
+!*.js
+
+# ---- Database export (required deliverable: schema + sample data) ----
+!*.sql
+
+# ---- Markdown documentation ----
+!*.md
+
+# ---- Apache / deployment config ----
+!.htaccess
+
+# ---- Image assets (logo, demo fixtures) ----
+!*.png
+!*.jpg
+!*.jpeg
+!*.gif
+!*.svg
+!*.ico
+
+# ---- Keep-empty-dir markers ----
+!.gitkeep
+
+# ---- Deployment descriptors (if added later) ----
+!Dockerfile
+!docker-compose.yml
+!docker-compose.yaml
+!.dockerignore
+
+# ---- CI/CD workflows (GitHub Actions) ----
+!*.yml
+!*.yaml
+
+# =============================================================================
+# Re-exclude anything that must NOT be pushed (overrides the whitelist above)
+# =============================================================================
+
+# Kilo / agent tooling (local only, never ship)
+.kilo/
+kilo.json
+AGENTS.md
+.kilocode/
+.opencode/
+
+# Internal documentation, design references, binary spec files
+doc/
+documentation/
+
+# Stray/loose files in the project root
+/*.webp
+/*.docx
+/*.zip
+
+# Dev-only scripts (not part of the shipped application)
+*.sh
+*.py
+*.pyc
+database/backup.sh
+database/gen_demo_images.py
+
+# Secrets / local config / build junk
+.env
+.env.*
+config/database.local.php
+backups/
+logs/*.log
+database/campusfind_full_export.sql
+
+# Original reference photos (runtime uses database/demo-images/)
+database/source-photos/
+
+# User-uploaded content (keep dir structure + .htaccess/.gitkeep, ignore files)
+uploads/reports/*
+!uploads/reports/.htaccess
+!uploads/reports/.gitkeep
+uploads/items/*
+!uploads/items/.gitkeep
+uploads/profiles/*
+!uploads/profiles/.gitkeep
+
+# Python cache
+database/__pycache__/
+__pycache__/
+
+# Editors / OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
