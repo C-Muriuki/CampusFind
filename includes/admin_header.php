@@ -35,7 +35,7 @@ if (!function_exists('adminStatusClass')) {
 <body class="admin-body">
 
 <div class="admin-layout">
-    <aside class="admin-sidebar">
+    <aside class="admin-sidebar" id="adminSidebar">
         <a class="admin-brand" href="<?= BASE_URL ?>/admin/dashboard.php">
             <img class="brand-logo"
                  src="<?= BASE_URL ?>/assets/images/campusfind-backpack-search.png"
@@ -105,9 +105,16 @@ if (!function_exists('adminStatusClass')) {
 
     <main class="admin-main">
         <header class="admin-topbar">
-            <div>
-                <span class="topbar-label">CAMPUSFIND / ADMIN</span>
-                <h1><?= e($pageTitle) ?></h1>
+            <div class="admin-topbar-head">
+                <button class="menu-toggle admin-menu-toggle" type="button"
+                        aria-label="Open navigation" aria-expanded="false"
+                        aria-controls="adminSidebar">
+                    <span></span><span></span><span></span>
+                </button>
+                <div>
+                    <span class="topbar-label">CAMPUSFIND / ADMIN</span>
+                    <h1><?= e($pageTitle) ?></h1>
+                </div>
             </div>
 
             <div class="admin-topbar-actions">
@@ -121,6 +128,7 @@ if (!function_exists('adminStatusClass')) {
                 </a>
             </div>
         </header>
+        <div class="nav-backdrop" aria-hidden="true"></div>
 
         <section class="admin-content">
             <?php if ($success = flash('success')): ?>

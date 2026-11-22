@@ -80,3 +80,66 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+/* Mobile navigation: hamburger toggles a collapsible menu (admin drawer +
+   student dropdown). Works for any `.menu-toggle` whose aria-controls points
+   at the collapsible element. Closes on link click, backdrop click, Escape
+   and resize. */
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".menu-toggle").forEach(button => {
+        const target = document.getElementById(
+            button.getAttribute("aria-controls") || ""
+        );
+
+        if (!target) {
+            return;
+        }
+
+        const backdrop =
+            document.querySelector(".nav-backdrop");
+
+        const setOpen = open => {
+            button.setAttribute(
+                "aria-expanded",
+                String(open)
+            );
+
+            button.setAttribute(
+                "aria-label",
+                open ? "Close navigation" : "Open navigation"
+            );
+
+            target.classList.toggle("is-open", open);
+            document.body.classList.toggle("nav-open", open);
+
+            if (backdrop) {
+                backdrop.classList.toggle("is-visible", open);
+            }
+        };
+
+        const isOpen = () =>
+            button.getAttribute("aria-expanded") === "true";
+
+        button.addEventListener("click", () => {
+            setOpen(!isOpen());
+        });
+
+        target.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => setOpen(false));
+        });
+
+        if (backdrop) {
+            backdrop.addEventListener("click", () => setOpen(false));
+        }
+
+        document.addEventListener("keydown", event => {
+            if (event.key === "Escape") {
+                setOpen(false);
+            }
+        });
+
+        window.addEventListener("resize", () => {
+            setOpen(false);
+        });
+    });
+});

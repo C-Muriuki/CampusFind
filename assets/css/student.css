@@ -108,12 +108,24 @@ textarea {
     color: var(--muted);
     font-size: 13px;
     font-weight: 600;
+    position: relative;
     transition: color 0.2s ease;
 }
 
 .student-nav-links a:hover,
 .student-nav-links a.active {
     color: var(--magenta-dark);
+}
+
+.student-nav-links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -6px;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--magenta);
 }
 
 .student-nav-account {
@@ -152,6 +164,49 @@ textarea {
 .theme-toggle:hover {
     border-color: var(--magenta);
     color: var(--magenta-dark);
+}
+
+/* Mobile hamburger (hidden on desktop) */
+.menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 8px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: border-color .2s ease, background .2s ease;
+}
+
+.menu-toggle:hover {
+    border-color: var(--magenta);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 19px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 3px;
+    transition: transform .22s ease, opacity .18s ease;
+}
+
+.menu-toggle[aria-expanded="true"] span:first-child {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] span:last-child {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .student-main {
@@ -922,15 +977,52 @@ h3 {
 @media (max-width: 900px) {
     .student-nav {
         flex-wrap: wrap;
-        padding: 15px 0;
+        padding: 14px 0;
+        position: relative;
     }
 
     .student-nav-links {
-        order: 3;
-        width: 100%;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        gap: 12px 20px;
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 2px;
+        padding: 10px 8px;
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(4, 5, 23, .18);
+        z-index: 30;
+    }
+
+    .student-nav-links.is-open {
+        display: flex;
+    }
+
+    .student-nav-links a {
+        padding: 12px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+    }
+
+    .student-nav-links a.active {
+        background: var(--pink-soft);
+        color: var(--magenta-dark);
+    }
+
+    .student-nav-links a.active::after {
+        display: none;
+    }
+
+    .student-nav-account > span {
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
     }
 
     .stats-grid {
@@ -949,11 +1041,11 @@ h3 {
     }
 
     .student-nav-links {
-        gap: 10px 15px;
+        gap: 2px;
     }
 
     .student-nav-links a {
-        font-size: 11px;
+        font-size: 14px;
     }
 
     .student-main {

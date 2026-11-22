@@ -41,7 +41,7 @@ $currentFile = basename($_SERVER['PHP_SELF'] ?? '');
             <span>CampusFind</span>
         </a>
 
-        <nav class="student-nav-links" aria-label="Student navigation">
+        <nav class="student-nav-links" id="studentNav" aria-label="Student navigation">
             <a class="<?= $currentFile === 'dashboard.php' ? 'active' : '' ?>"
                href="<?= e(BASE_URL) ?>/student/dashboard.php">Dashboard</a>
 
@@ -80,6 +80,12 @@ $currentFile = basename($_SERVER['PHP_SELF'] ?? '');
                        value="<?= e(csrfToken()) ?>">
                 <button type="submit" class="logout-link">Log out</button>
             </form>
+
+            <button class="menu-toggle student-menu-toggle" type="button"
+                    aria-label="Open navigation" aria-expanded="false"
+                    aria-controls="studentNav">
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </div>
 </header>
