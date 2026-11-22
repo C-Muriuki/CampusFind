@@ -49,6 +49,13 @@ function auth_header(string $title): void
         </a>
 
         <a class="button button-outline" href="<?= e($base) ?>/index.php">Back to home</a>
+
+        <button class="theme-toggle" type="button"
+                aria-label="Switch to dark mode" aria-pressed="false"
+                title="Toggle colour theme">
+            <span class="theme-icon theme-icon-moon"><?= icon('moon', 18) ?></span>
+            <span class="theme-icon theme-icon-sun"><?= icon('sun', 18) ?></span>
+        </button>
     </div>
 </header>
 

@@ -122,8 +122,10 @@ if (!function_exists('adminStatusClass')) {
 
             <div class="admin-topbar-actions">
                 <button class="theme-toggle" type="button"
-                        aria-label="Switch to dark mode" aria-pressed="false">
-                    Dark mode
+                        aria-label="Switch to dark mode" aria-pressed="false"
+                        title="Toggle colour theme">
+                    <span class="theme-icon theme-icon-moon"><?= icon('moon', 18) ?></span>
+                    <span class="theme-icon theme-icon-sun"><?= icon('sun', 18) ?></span>
                 </button>
 
                 <a class="topbar-link" href="<?= BASE_URL ?>/index.php">

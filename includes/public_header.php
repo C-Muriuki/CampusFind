@@ -102,11 +102,6 @@ $navItems = [
             <?php endforeach; ?>
 
             <div class="mobile-auth-actions">
-                <button class="theme-toggle" type="button"
-                        aria-label="Switch to dark mode" aria-pressed="false">
-                    Dark mode
-                </button>
-
                 <?php if (isLoggedIn()): ?>
                     <form method="POST"
                           action="<?= e($base) ?>/auth/logout.php"
@@ -130,8 +125,10 @@ $navItems = [
 
         <div class="header-actions">
             <button class="theme-toggle" type="button"
-                    aria-label="Switch to dark mode" aria-pressed="false">
-                Dark mode
+                    aria-label="Switch to dark mode" aria-pressed="false"
+                    title="Toggle colour theme">
+                <span class="theme-icon theme-icon-moon"><?= icon('moon', 18) ?></span>
+                <span class="theme-icon theme-icon-sun"><?= icon('sun', 18) ?></span>
             </button>
 
             <?php if (isLoggedIn()): ?>

@@ -290,19 +290,43 @@ textarea {
 }
 
 .theme-toggle {
-    padding: 7px 11px;
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--border);
-    border-radius: 7px;
+    border-radius: 8px;
     background: var(--white);
-    color: var(--muted);
-    font-size: 12px;
-    font-weight: 600;
+    color: var(--text);
     cursor: pointer;
+    flex: none;
+    transition: border-color .2s ease, color .2s ease, background .2s ease;
 }
 
 .theme-toggle:hover {
     border-color: var(--magenta);
     color: var(--magenta-dark);
+}
+
+.theme-toggle .theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle .theme-icon-sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-icon-moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-icon-sun {
+    display: inline-flex;
 }
 
 [data-theme="dark"] .theme-toggle:hover {

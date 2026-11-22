@@ -37,9 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         themeButtons.forEach(button => {
             const dark = theme === "dark";
 
-            button.textContent =
-                dark ? "Light mode" : "Dark mode";
-
             button.setAttribute(
                 "aria-label",
                 dark

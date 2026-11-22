@@ -72,8 +72,10 @@ $currentFile = basename($_SERVER['PHP_SELF'] ?? '');
 
         <div class="student-nav-account">
             <button class="theme-toggle" type="button"
-                    aria-label="Switch to dark mode" aria-pressed="false">
-                Dark mode
+                    aria-label="Switch to dark mode" aria-pressed="false"
+                    title="Toggle colour theme">
+                <span class="theme-icon theme-icon-moon"><?= icon('moon', 18) ?></span>
+                <span class="theme-icon theme-icon-sun"><?= icon('sun', 18) ?></span>
             </button>
 
             <span><?= e($_SESSION['full_name'] ?? 'Student') ?></span>

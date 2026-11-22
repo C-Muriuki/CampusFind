@@ -204,8 +204,25 @@
         flex: 1;
     }
 
+    /* Keep the theme toggle icon visible in the top bar on mobile;
+       the auth buttons live in the collapsible menu instead. */
+    .brand {
+        order: 1;
+    }
+
     .header-actions {
+        display: flex;
+        gap: 0;
+        order: 2;
+    }
+
+    .header-actions .button,
+    .header-actions .logout-form {
         display: none;
+    }
+
+    .menu-toggle {
+        order: 3;
     }
 
     /* Hero */

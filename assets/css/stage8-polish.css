@@ -219,3 +219,41 @@ textarea:focus-visible {
         display: none;
     }
 }
+/* ============================================================
+   MOBILE CONTENT POLISH
+   Keeps content well-placed on small screens: no horizontal
+   scroll, fluid media, safe wrapping, and clearance so the
+   floating quick-nav button never covers content.
+   ============================================================ */
+body {
+    overflow-wrap: break-word;
+}
+
+@media (max-width: 680px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    img,
+    video,
+    canvas {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .palette-trigger {
+        bottom: 14px;
+        left: 14px;
+    }
+
+    /* Give the page a little breathing room above the floating button. */
+    .site-footer,
+    .auth-footer-bar {
+        padding-bottom: 72px;
+    }
+
+    .admin-content,
+    .student-main {
+        padding-bottom: 72px;
+    }
+}

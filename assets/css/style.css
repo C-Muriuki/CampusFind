@@ -608,16 +608,20 @@ button {
 /* ============================= THEME BUTTON ============================= */
 
 .theme-toggle {
-    min-height: 39px;
-    padding: 8px 12px;
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--border);
     border-radius: 9px;
     background: var(--white);
     color: var(--text);
-    font-size: 11px;
-    font-weight: 700;
     cursor: pointer;
-    transition: border-color .2s ease, color .2s ease;
+    flex: none;
+    transition: border-color .2s ease, color .2s ease, background .2s ease;
 }
 
 .theme-toggle:hover {
@@ -625,8 +629,26 @@ button {
     color: var(--magenta);
 }
 
+.theme-toggle .theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle .theme-icon-sun {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-icon-moon {
+    display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-icon-sun {
+    display: inline-flex;
+}
+
 .mobile-auth-actions .theme-toggle {
-    flex: 1;
+    flex: none;
 }
 
 .logout-form {
