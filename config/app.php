@@ -3,14 +3,28 @@ declare(strict_types=1);
 
 define('APP_NAME', 'CampusFind');
 
-// Environment resolution. Set the CAMPUSFIND_ENV environment variable to
-// 'production' on a live host (recommended); anything else (or unset) is
-// treated as local development. Debug is ON only for non-production, so a
-// production deploy never leaks stack traces or DB details to the browser.
+// Environment resolution. Resolution order:
+//   1. CAMPUSFIND_ENV environment variable ('production' or 'development').
+//   2. Auto-detect: any real (non-local) host is treated as production so a
+//      live deploy never leaks stack traces or DB details to the browser;
+//      localhost/127.0.0.1, CLI and the built-in dev server stay development.
+// Debug is ON only for non-production.
 $appEnv = getenv('CAMPUSFIND_ENV');
-$appEnv = ($appEnv === false || $appEnv === '')
-    ? 'development'
-    : strtolower(trim($appEnv));
+$appEnv = ($appEnv === false) ? '' : strtolower(trim($appEnv));
+
+if ($appEnv === '') {
+    $requestHost = strtolower(trim((string) ($_SERVER['HTTP_HOST'] ?? '')));
+    $isLocalHost = (
+        $requestHost === ''
+        || $requestHost === 'localhost'
+        || str_starts_with($requestHost, 'localhost:')
+        || $requestHost === '127.0.0.1'
+        || str_starts_with($requestHost, '127.0.0.1:')
+        || $requestHost === '[::1]'
+        || str_starts_with($requestHost, '[::1]:')
+    );
+    $appEnv = $isLocalHost ? 'development' : 'production';
+}
 
 define('APP_ENV', $appEnv === 'production' ? 'production' : 'development');
 define('APP_DEBUG', APP_ENV !== 'production');
