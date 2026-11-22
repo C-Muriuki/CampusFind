@@ -11,4 +11,4 @@ TODO - CampusFind nav + dark-mode hardening
 [x] Deploy changed files via Git push -> GitHub Actions -> InfinityFree (verified live: theme.js 79 lines, admin.css + student.css + stage8-polish.css dark overrides deployed), verify live HTTP 200 + nav + dark text
 [x] Committed c09070d + pushed to origin/main; deploy verified live
 
-[~] Card containment fix: reduced hover lift, added overflow containment to page sections, mobile guard — ready to commit & push
+[x] Card containment fix committed (73970a2) + pushed to origin/main; live on InfinityFree
