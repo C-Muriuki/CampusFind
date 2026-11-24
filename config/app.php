@@ -105,7 +105,7 @@ define(
 define('SESSION_NAME', 'CAMPUSFIND_SESSION');
 
 // Public support contact details (surfaced via the floating WhatsApp button).
-define('SUPPORT_WHATSAPP', '2541105500085');
+define('SUPPORT_WHATSAPP', '254110550085');
 define('SUPPORT_EMAIL', 'llinscohub@gmail.com');
 
 // Outgoing mail. Uses PHP's built-in mail() (works with a local sendmail/MTA).
