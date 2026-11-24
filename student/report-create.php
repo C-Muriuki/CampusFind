@@ -45,20 +45,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $errors = array_merge($errors, $validation['errors']);
     $old = array_merge($old, $validation['clean']);
 
-    $imagePath = null;
-    $uploadedFile = $_FILES['item_image'] ?? null;
+$imagePath = null;
+$uploadedFile = $_FILES['item_image'] ?? null;
 
-    if ($uploadedFile && $uploadedFile['error'] !== UPLOAD_ERR_NO_FILE) {
-        try {
-            $generated = storeSecureReportImage($uploadedFile);
+if (!$uploadedFile || $uploadedFile['error'] === UPLOAD_ERR_NO_FILE) {
+    $errors[] = 'An item photo is required. Please upload a clear image of the item.';
+} elseif ($uploadedFile['error'] !== UPLOAD_ERR_NO_FILE) {
+    try {
+        $generated = storeSecureReportImage($uploadedFile);
 
-            if ($generated !== null) {
-                $imagePath = 'uploads/reports/' . $generated;
-            }
-        } catch (RuntimeException $exception) {
-            $errors[] = $exception->getMessage();
+        if ($generated !== null) {
+            $imagePath = 'uploads/reports/' . $generated;
         }
+    } catch (RuntimeException $exception) {
+        $errors[] = $exception->getMessage();
     }
+}
 
     if (!$errors) {
         try {
@@ -272,9 +274,9 @@ require_once __DIR__ . '/../includes/student_header.php';
 
         <div class="form-section">
             <h2>Item photo</h2>
-            <p class="muted">
-                A clear photo can help someone identify the item. This is optional.
-            </p>
+<p class="muted">
+    A clear photo is required to help someone identify the item.
+</p>
 
             <div class="form-group">
                 <label for="item_image">Upload image</label>
@@ -283,6 +285,7 @@ require_once __DIR__ . '/../includes/student_header.php';
                     id="item_image"
                     name="item_image"
                     accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+                    required
                 >
                 <small>JPG, PNG or WebP. Maximum size: 5 MB.</small>
             </div>
