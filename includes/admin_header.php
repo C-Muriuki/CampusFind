@@ -84,6 +84,11 @@ if (!function_exists('adminStatusClass')) {
 
             <p class="nav-heading">SYSTEM</p>
 
+            <a href="<?= BASE_URL ?>/admin/profile.php"
+               class="<?= currentPage() === 'profile.php' ? 'active' : '' ?>">
+                My profile
+            </a>
+
             <a href="<?= BASE_URL ?>/admin/activity-logs.php"
                class="<?= currentPage() === 'activity-logs.php' ? 'active' : '' ?>">
                 Activity logs
